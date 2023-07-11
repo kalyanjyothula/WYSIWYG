@@ -19,15 +19,22 @@ const favoriteTripsOperations = asyncHandler(async (req, res) => {
   const { trip, email } = req.body;
   console.log(email, trip);
 
-  const { trips } = await favoriteTrips.findOne({ email: email });
-  console.log(trips.includes(trip), trips);
-  if (trips.length > 0 && trips.includes(trip)) {
+  const output = await favoriteTrips.findOne({ email: email });
+
+  if (!output) {
+    const result = await favoriteTrips.create({ email: email, trips: [trip] });
+    return res
+      .status(200)
+      .json({ success: true, message: 'trips created successfully' });
+  } else if (output.trips.length > 0 && output.trips.includes(trip)) {
+    const { trips } = output;
     const newTrips = trips.filter((ele) => ele !== trip);
     const out = await handleFavTripOperations(email, newTrips);
     return res
       .status(200)
       .json({ success: true, message: 'Trip removed successfully' });
   } else {
+    const { trips } = output;
     trips.push(trip);
     const out = await handleFavTripOperations(email, trips);
     return res
