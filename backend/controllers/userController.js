@@ -49,7 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email: email });
-  console.log(email, password, req.body, 'User');
+  // console.log(email, password, req.body, 'User');
   const passwordCheck = await bcrypt.compare(password, user.password);
   // console.log(user, passwordCheck, "login Backend");
   if (user && passwordCheck) {

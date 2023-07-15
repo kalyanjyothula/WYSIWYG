@@ -52,8 +52,51 @@ const handleFavTripOperations = asyncHandler(async (email, trips) => {
   return out;
 });
 
+// remove trip
+const removeFavTrip = asyncHandler(async (req, res) => {
+  const { id, email } = req.body;
+  const trip = await favoriteTrips.findOne({ email: email });
+  console.log(trip, 'out');
+  if (trip) {
+    const out = trip.trips.filter((ele) => ele !== id);
+    console.log(out, id, 'res');
+    await favoriteTrips.updateOne(
+      { email: email },
+      { $set: { trips: [...out] } }
+    );
+    return res
+      .status(200)
+      .json({ success: true, message: 'Trip removed successfully' });
+  }
+  return res
+    .status(404)
+    .json({ success: false, message: 'No such trip exist' });
+});
+
+// add trip
+const addFavTrip = asyncHandler(async (req, res) => {
+  const { id, email } = req.body;
+  const trip = await favoriteTrips.find({ email: email });
+  if (!trip) {
+    const result = await favoriteTrips.create({ email: email, trips: [trip] });
+    return res
+      .status(200)
+      .json({ success: true, message: 'trips created successfully' });
+  }
+  trip.push(id);
+  const out = favoriteTrips.updateOne(
+    { email: email },
+    { $set: { trips: [...trips] } }
+  );
+  return res
+    .status(404)
+    .json({ success: false, message: 'No such trip exist' });
+});
+
 module.exports = {
   getFavoriteTripsByEmail,
   favoriteTripsOperations,
   handleFavTripOperations,
+  removeFavTrip,
+  addFavTrip,
 };
