@@ -159,6 +159,48 @@ const fetchSearchResult = asyncHandler(async (req, res) => {
   return res.status(400).json({ success: false });
 });
 
+const updateFullDescription = asyncHandler(async (req, res) => {
+  const { fullDescription, id } = req.body;
+  if (id && fullDescription.length > 0) {
+    const result = await Trip.updateOne(
+      { _id: id },
+      { $set: { fullDescription: fullDescription } }
+    );
+    return res.status(200).json({ success: true, data: result });
+  }
+  return res.status(400).json({ success: false });
+});
+
+const updateImages = asyncHandler(async (req, res) => {
+  const { images, id } = req.body;
+  if (id && images.length > 0) {
+    const result = await Trip.updateOne(
+      { _id: id },
+      { $set: { images: images } }
+    );
+    return res.status(200).json({ success: true, data: result });
+  }
+  return res.status(400).json({ success: false });
+});
+
+const updateTripTags = asyncHandler(async (req, res) => {
+  const { tripTags, id } = req.body;
+  if (id && tripTags.length > 0) {
+    const result = await Trip.updateOne({ _id: id }, { $push: { tripTags } });
+    return res.status(200).json({ success: true, data: result });
+  }
+  return res.status(400).json({ success: false });
+});
+
+const updateTripFields = asyncHandler(async (req, res) => {
+  const { fields, id } = req.body;
+  if (id && Object.keys(fields).length > 0) {
+    const result = await Trip.updateOne({ _id: id }, { $set: fields });
+    return res.status(200).json({ success: true, data: result });
+  }
+  return res.status(400).json({ success: false });
+});
+
 module.exports = {
   tripById,
   userTrips,
@@ -166,4 +208,8 @@ module.exports = {
   homePageTrips,
   createHomePageTrip,
   fetchSearchResult,
+  updateTripTags,
+  updateFullDescription,
+  updateImages,
+  updateTripFields,
 };
