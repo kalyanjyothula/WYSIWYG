@@ -120,13 +120,15 @@ const homePageTrips = asyncHandler(async (req, res) => {
 
 const createHomePageTrip = asyncHandler(async (req, res) => {
   const { title, description, data, banner } = req.body;
-  const result = await homePages.create({
-    title: title,
-    description: description,
-    data: data,
-    banner: banner,
-  });
-  if (result) return res.status(200).json({ success: true, data: result });
+  if (title && description && data) {
+    const result = await homePages.create({
+      title: title,
+      description: description,
+      data: data,
+      banner: banner,
+    });
+    if (result) return res.status(200).json({ success: true, data: result });
+  }
   return res.status(404).json({ success: false, msg: 'trip creation failed' });
 });
 
@@ -135,10 +137,33 @@ const similarTrips = asyncHandler(async (tags) => {
   return output;
 });
 
+const fetchSearchResult = asyncHandler(async (req, res) => {
+  const { key } = req.body;
+  console.log(key);
+  if (key) {
+    const pattern = new RegExp(key, 'i');
+    const result = await Trip.find({
+      $or: [
+        { tripName: pattern },
+        { smTitle: pattern },
+        { mdTitle: pattern },
+        { smDescription: pattern },
+        { mdDescription: pattern },
+        { fullDescription: { $elemMatch: { $regex: pattern } } },
+      ],
+    });
+    if (result.length > 0) {
+      return res.status(200).json({ success: true, data: result });
+    } else return res.status(200).json({ success: true, data: [] });
+  }
+  return res.status(400).json({ success: false });
+});
+
 module.exports = {
   tripById,
   userTrips,
   createTrip,
   homePageTrips,
   createHomePageTrip,
+  fetchSearchResult,
 };

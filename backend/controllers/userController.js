@@ -48,44 +48,48 @@ const registerUser = asyncHandler(async (req, res) => {
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ email: email });
-  // console.log(email, password, req.body, 'User');
-  const passwordCheck = await bcrypt.compare(password, user.password);
-  // console.log(user, passwordCheck, "login Backend");
-  if (user && passwordCheck) {
-    const token = generateToken({ id: user._id, password: user.password });
-    await User.updateOne({ email: user.email }, { $set: { token: token } });
-    res.cookie('beyond-token', token, { httpOnly: true });
-    return res.status(200).json({
-      success: true,
-      _id: user.id,
-      mobile: user.mobile,
-      email: user.email,
-      token: token,
-    });
-  } else {
-    res.status(400);
-    throw new Error('Invalid credentials !');
+  if (email && password) {
+    const user = await User.findOne({ email: email });
+    // console.log(email, password, req.body, 'User');
+    const passwordCheck = await bcrypt.compare(password, user.password);
+    // console.log(user, passwordCheck, "login Backend");
+    if (user && passwordCheck) {
+      const token = generateToken({ id: user._id, password: user.password });
+      await User.updateOne({ email: user.email }, { $set: { token: token } });
+      res.cookie('beyond-token', token, { httpOnly: true });
+      return res.status(200).json({
+        success: true,
+        _id: user.id,
+        mobile: user.mobile,
+        email: user.email,
+        token: token,
+      });
+    } else {
+      res.status(400);
+      throw new Error('Invalid credentials !');
+    }
   }
   // res.json({ message: "login User !" })
 });
 
 const logOutUser = asyncHandler(async (req, res) => {
   const { email } = req.body;
-  const user = await User.findOne({ email });
-  if (user) {
-    const output = await User.updateOne(
-      { email: email },
-      { $unset: { token: 1 } }
-    );
-    res.clearCookie('beyond-token');
-    return res.status(200).json({
-      success: true,
-      message: 'logout successfully',
-    });
-  } else {
-    res.status(400);
-    throw new Error('Invalid credentials !');
+  if (email) {
+    const user = await User.findOne({ email });
+    if (user) {
+      const output = await User.updateOne(
+        { email: email },
+        { $unset: { token: 1 } }
+      );
+      res.clearCookie('beyond-token');
+      return res.status(200).json({
+        success: true,
+        message: 'logout successfully',
+      });
+    } else {
+      res.status(400);
+      throw new Error('Invalid credentials !');
+    }
   }
 });
 
