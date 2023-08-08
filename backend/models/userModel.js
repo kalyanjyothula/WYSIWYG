@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const validator = require("validator");
+const mongoose = require('mongoose');
+const validator = require('validator');
 
 const userSchema = mongoose.Schema(
   {
@@ -9,11 +9,11 @@ const userSchema = mongoose.Schema(
       unique: true,
       trim: true,
       validate: {
-        validator: function(num) {
-          return /\d{10}/.test(num)
+        validator: function (num) {
+          return /\d{10}/.test(num);
         },
-        message: props => `${props.value} is not a valid phone number!`
-      }
+        message: (props) => `${props.value} is not a valid phone number!`,
+      },
     },
     email: {
       type: String,
@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema(
       validate: {
         validator: validator.isEmail,
         // message: `${VALUE} is not a valid email !`
-      }
+      },
     },
     password: {
       type: String,
@@ -32,12 +32,11 @@ const userSchema = mongoose.Schema(
     },
     token: {
       type: String,
-    }
-
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
-)
+);
 
 module.exports = mongoose.model('User', userSchema);
