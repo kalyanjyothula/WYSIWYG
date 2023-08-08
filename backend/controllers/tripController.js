@@ -1,15 +1,37 @@
 const asyncHandler = require('express-async-handler');
 const Trip = require('../models/tripModel');
 const favoriteTrips = require('../models/favoriteTripsModel');
+const Route = require('../models/routesModel');
 const homePages = require('../models/homeDataModel');
 
 const tripById = asyncHandler(async (req, res) => {
   const { id } = req.body;
   const trip = await Trip.findById(id);
   if (trip) {
+    const { tripTags: tags, nearBy: nb, route } = trip;
+    let [similarTrips, nearBy, routes] = await Promise.all([
+      Trip.find({ tripTags: { $elemMatch: { $in: tags } } })
+        .sort({ _id: -1 })
+        .limit(10),
+      Trip.find({ _id: { $in: nb } }).limit(10),
+      Route.find({ _id: { $in: route } }),
+    ]);
+
+    // Handle cases where the number of results is less than 10
+    if (similarTrips.length < 10) {
+      const remainingTrips = await Trip.find().limit(10 - similarTrips.length);
+      similarTrips = [...similarTrips, ...remainingTrips];
+    }
+    // if (nearBy.length < 10)
+    //   nearBy = await Trip.find().sort({ _id: -1 }).limit(10);
     return res.status(200).json({
       success: true,
-      trip: trip,
+      data: {
+        trip: trip,
+        similarTrips: similarTrips,
+        nearBy: nearBy,
+        routes: routes,
+      },
     });
   }
   return res.status(404).json({ success: false, message: 'trip not found !' });
@@ -89,7 +111,7 @@ const homePageTrips = asyncHandler(async (req, res) => {
     const tripsData = await Promise.all(
       homeData.map(async ({ _id, data, title, description, banner }) => {
         if (data?.length > 0) {
-          const tmp = await Trip.find({ _id: { $in: data } });
+          const tmp = await Promise.all(data.map((id) => Trip.findById(id)));
           if (tmp)
             return {
               _id: _id,
@@ -149,11 +171,19 @@ const fetchSearchResult = asyncHandler(async (req, res) => {
         { mdTitle: pattern },
         { smDescription: pattern },
         { mdDescription: pattern },
+        { tripTags: { $elemMatch: { $regex: pattern } } },
         { fullDescription: { $elemMatch: { $regex: pattern } } },
       ],
     });
     if (result.length > 0) {
-      return res.status(200).json({ success: true, data: result });
+      const arr = [];
+      cmp = key.toLowerCase();
+      result.forEach((item) => {
+        low = item.tripName.toLowerCase();
+        if (low.includes(key)) arr.unshift(item);
+        else arr.push(item);
+      });
+      return res.status(200).json({ success: true, data: arr });
     } else return res.status(200).json({ success: true, data: [] });
   }
   return res.status(400).json({ success: false });

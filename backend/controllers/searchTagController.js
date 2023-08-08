@@ -4,10 +4,10 @@ const Trip = require('../models/tripModel');
 
 const generateSearchTags = asyncHandler(async (req, res) => {
   const data = await Trip.find().select('tripTags');
-  const searchTags = [...new Set(data.flatMap(({ tripTags }) => tripTags))];
-  const { acknowledged } = await SearchTag.deleteMany({});
+  const searchTagsData = [...new Set(data.flatMap(({ tripTags }) => tripTags))];
+  const { acknowledged } = await searchTags.deleteMany({});
   if (acknowledged) {
-    const result = await SearchTag.create({ search: searchTags });
+    const result = await searchTags.create({ search: searchTagsData });
     if (result)
       return res
         .status(200)

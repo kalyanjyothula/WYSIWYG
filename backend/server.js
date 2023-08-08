@@ -22,6 +22,7 @@ app.use('/api/goals', require('./routes/goalsRouter'));
 app.use('/api/user', require('./routes/userRouter'));
 app.use('/api/fav-trips', require('./routes/favTripsRouter'));
 app.use('/api/trip', require('./routes/tripRouter'));
+app.use('/api/route', require('./routes/tripRoutes'));
 
 // Serve frontend
 if (process.env.NODE_ENV === 'production') {

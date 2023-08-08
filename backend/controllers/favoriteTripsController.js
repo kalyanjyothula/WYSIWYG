@@ -60,7 +60,7 @@ const removeFavTrip = asyncHandler(async (req, res) => {
     const trip = await favoriteTrips.findOne({ email: email });
     if (trip) {
       const out = trip.trips.filter((ele) => ele !== id);
-      console.log(out, id, 'res');
+      // console.log(out, id, 'res');
       await favoriteTrips.updateOne(
         { email: email },
         { $set: { trips: [...out] } }

@@ -20,7 +20,7 @@ const {
 } = require('../controllers/tripController');
 const { protect } = require('../middleware/authMiddleware');
 
-router.route('/trip').post(protect, tripById);
+router.route('/').post(tripById);
 router.route('/search-result').post(fetchSearchResult);
 router.route('/create-trip').post(protect, createTrip);
 router.route('/user-fav-trips').post(protect, userTrips);

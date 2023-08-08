@@ -48,6 +48,13 @@ const tripSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  nearBy: {
+    type: [String],
+  },
+  route: {
+    type: [String],
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Trip', tripSchema);
