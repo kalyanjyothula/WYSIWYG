@@ -26,11 +26,11 @@ app.use('/api/route', require('./routes/tripRoutes'));
 
 // Serve frontend
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../beyond/build')));
+  app.use(express.static(path.join(__dirname, '../../beyond/build')));
 
   app.get('*', (req, res) =>
     res.sendFile(
-      path.resolve(__dirname, '../', 'beyond', 'build', 'index.html')
+      path.resolve(__dirname, '../', '../', 'beyond', 'build', 'index.html')
     )
   );
 } else {
