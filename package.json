@@ -9,7 +9,6 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon backend/server.js",
     "prod-setup-frontend": "cp -r ../beyond ./beyond",
-    "build": "npm run build --prefix ./beyond",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ./beyond && npm run build --prefix ./beyond"
   },
   "keywords": [],
