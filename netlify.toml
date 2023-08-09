@@ -1,0 +1,2 @@
+[build]
+  command = "npm install --prefix ./beyond && npm run build --prefix ./beyond"
