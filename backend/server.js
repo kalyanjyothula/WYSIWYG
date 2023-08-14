@@ -23,14 +23,15 @@ app.use('/api/user', require('./routes/userRouter'));
 app.use('/api/fav-trips', require('./routes/favTripsRouter'));
 app.use('/api/trip', require('./routes/tripRouter'));
 app.use('/api/route', require('./routes/tripRoutes'));
-
+console.log(__dirname, "dir")
 // Serve frontend
+const __dirname1 = path.resolve()
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/build')));
+  app.use(express.static(path.join(__dirname1, '../frontend/build')));
 
   app.get('*', (req, res) =>
     res.sendFile(
-      path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+      path.resolve(__dirname1, '../', 'frontend', 'build', 'index.html')
     )
   );
 } else {
