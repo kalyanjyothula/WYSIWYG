@@ -1,0 +1,19 @@
+send header authorization code to favTrips api -
+modify the authMiddleware as per call -
+add & delete fav trips api calls - done
+
+
+--- login & headed
+loading indication on button  - 
+logout option in header -
+page loading component -
+
+-- trip --
+favtrips fetching api call + similar products, recommendations
+trip schema & trip api call
+
+
+--- Trip Page -- 
+
+fetch favtrips api call  [ similarities & recommendations data in single call]
+fetch favtrips client side actions

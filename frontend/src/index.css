@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .textShadow {
+    /* text-shadow: '2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff' */
+    text-shadow: red;
+    -webkit-text-stroke: red;
+  }
+}
+
+/* font-family: 'Lilita One', cursive; */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Ubuntu', sans-serif, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
