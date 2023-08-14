@@ -5,12 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node backend/server.js",
-    "client": "npm start --prefix ../beyond",
+    "client": "npm start --prefix ../frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon backend/server.js",
-    "prod-setup-frontend": "cp -r ../beyond ./beyond",
-    "front-end-setup": "if [ -d beyond ]; then cd beyond && git pull origin main; else git clone https://github.com/kalyanjyothula/beyond.git; fi",
-    "build": "npm run front-end-setup && npm install && npm install --prefix beyond && npm run build --prefix beyond"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "Kalyan Jyothula",
