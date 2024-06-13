@@ -10,15 +10,15 @@ const homePageReducer = createSlice({
   name: "homePage",
   initialState: initialState,
   reducers: {
-    getFavoriteTrips(state, action) {
-      console.log("called getFavoriteTrips");
-    },
-    getFavoriteTripsSuccess(state, { payload }) {
-      return { ...state, favoriteTrips: [...payload.trips] };
-    },
-    getFavoriteTripsFail(state, { payload }) {
-      return { ...state };
-    },
+    // getFavoriteTrips(state, action) {
+    //   console.log("called getFavoriteTrips");
+    // },
+    // getFavoriteTripsSuccess(state, { payload }) {
+    //   return { ...state, favoriteTrips: [...payload.trips] };
+    // },
+    // getFavoriteTripsFail(state, { payload }) {
+    //   return { ...state };
+    // },
     getHomePageData(state) {
       return { ...state, loading: true, errorMsg: "" };
     },
@@ -33,23 +33,23 @@ const homePageReducer = createSlice({
     getHomePageDataFail(state) {
       return { ...state, loading: false, errorMsg: "Something Went Wrong !" };
     },
-    addToFavoriteTrip(state, { payload }) {
-      if (!state.favoriteTrips.includes(payload)) {
-        state.favoriteTrips.push(payload);
-        return state;
-      } else {
-        const fav = state.favoriteTrips.filter((ele) => ele !== payload);
-        return { ...state, favoriteTrips: [...fav] };
-      }
-    },
+    // addToFavoriteTrip(state, { payload }) {
+    //   if (!state.favoriteTrips.includes(payload)) {
+    //     state.favoriteTrips.push(payload);
+    //     return state;
+    //   } else {
+    //     const fav = state.favoriteTrips.filter((ele) => ele !== payload);
+    //     return { ...state, favoriteTrips: [...fav] };
+    //   }
+    // },
   },
 });
 
 export const {
-  addToFavoriteTrip,
-  getFavoriteTrips,
-  getFavoriteTripsFail,
-  getFavoriteTripsSuccess,
+  // addToFavoriteTrip,
+  // getFavoriteTrips,
+  // getFavoriteTripsFail,
+  // getFavoriteTripsSuccess,
   getHomePageData,
   getHomePageDataFail,
   getHomePageDataSuccess,

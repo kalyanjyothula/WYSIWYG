@@ -1,9 +1,9 @@
 import { takeLatest, call, put, select } from "redux-saga/effects";
 import {
   appSelector,
-  getSearchSuggestions,
-  getSearchSuggestionsFail,
-  getSearchSuggestionsSuccess,
+  // getSearchSuggestions,
+  // getSearchSuggestionsFail,
+  // getSearchSuggestionsSuccess,
   getUserInfo,
   getUserInfoFail,
   googleLoginInfo,
@@ -89,28 +89,28 @@ export function* googleLoginInfoAsync({ payload }) {
   }
 }
 
-export function* getSearchSuggestionsAsync({ payload }) {
-  // console.log(payload, "pa");
-  try {
-    if (payload) {
-      const url = "/api/trip/search-suggestion";
-      const { data } = yield call(axios, {
-        method: "POST",
-        url: url,
-        data: { text: payload },
-      });
-      if (data.success) yield put(getSearchSuggestionsSuccess(data.search));
-      else yield put(getSearchSuggestionsFail());
-    }
-  } catch (error) {
-    yield put(getSearchSuggestionsFail());
-    console.log(error);
-  }
-}
+// export function* getSearchSuggestionsAsync({ payload }) {
+//   // console.log(payload, "pa");
+//   try {
+//     if (payload) {
+//       const url = "/api/trip/search-suggestion";
+//       const { data } = yield call(axios, {
+//         method: "POST",
+//         url: url,
+//         data: { text: payload },
+//       });
+//       if (data.success) yield put(getSearchSuggestionsSuccess(data.search));
+//       else yield put(getSearchSuggestionsFail());
+//     }
+//   } catch (error) {
+//     yield put(getSearchSuggestionsFail());
+//     console.log(error);
+//   }
+// }
 
 export const AppSaga = [
   takeLatest(getUserInfo.type, getUserSaga),
   takeLatest(userLogOut.type, userLogOutAsync),
   takeLatest(googleLoginInfo.type, googleLoginInfoAsync),
-  takeLatest(getSearchSuggestions.type, getSearchSuggestionsAsync),
+  // takeLatest(getSearchSuggestions.type, getSearchSuggestionsAsync),
 ];

@@ -46,15 +46,15 @@ const userReducer = createSlice({
         loading: false,
       };
     },
-    getSearchSuggestions(state, { payload }) {
-      return { ...state, searchText: payload };
-    },
-    getSearchSuggestionsSuccess(state, { payload }) {
-      return { ...state, searchSuggestions: [...payload] };
-    },
-    getSearchSuggestionsFail(state) {
-      return { ...state, searchSuggestions: [] };
-    },
+    // getSearchSuggestions(state, { payload }) {
+    //   return { ...state, searchText: payload };
+    // },
+    // getSearchSuggestionsSuccess(state, { payload }) {
+    //   return { ...state, searchSuggestions: [...payload] };
+    // },
+    // getSearchSuggestionsFail(state) {
+    //   return { ...state, searchSuggestions: [] };
+    // },
   },
 });
 
@@ -66,9 +66,9 @@ export const {
   userLogOut,
   googleLoginInfoSuccess,
   googleLoginInfoFail,
-  getSearchSuggestions,
-  getSearchSuggestionsSuccess,
-  getSearchSuggestionsFail,
+  // getSearchSuggestions,
+  // getSearchSuggestionsSuccess,
+  // getSearchSuggestionsFail,
 } = userReducer.actions;
 
 export const appSelector = (state) => state.app;
