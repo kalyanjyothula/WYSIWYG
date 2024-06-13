@@ -13,20 +13,20 @@ const data = {
   },
   tripCards: {
     nature: {
-      title: 'Best of Nature',
+      title: "Best of Nature",
       description: "Traveller's Choice for the best nature experience.",
       data: [
         {
-          id: 'nature/01',
+          id: "nature/01",
           image: araku,
-          title: 'Araku Valley Natural Wonders Day Trip From Vizag',
+          title: "Araku Valley Natural Wonders Day Trip From Vizag",
           description:
             "Nature's serene haven nestled amidst majestic hills and verdant landscapes.",
           likesCount: 120,
           review: 3,
         },
         {
-          id: 'nature/02',
+          id: "nature/02",
           image: kashmir,
           title: "Enchanting Beauty of Kashmir's Snow Valley",
           description:
@@ -35,7 +35,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'nature/03',
+          id: "nature/03",
           image: khajjiar,
           title:
             "Mystical Khajjiar: Discovering the Enchanted Beauty of Himachal Pradesh's Gem",
@@ -45,7 +45,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'nature/04',
+          id: "nature/04",
           image: shillong,
           title: "Shillong: Symphony of Clouds and Nature's Melody",
           description:
@@ -54,17 +54,17 @@ const data = {
           review: 3,
         },
         {
-          id: 'nature/05',
+          id: "nature/05",
           image: sikkim,
           title:
-            'Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss',
+            "Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss",
           description:
             "Sikkim: Nature's untouched sanctuary, adorned with majestic mountains, serene monasteries, and vibrant cultural tapestry.",
           likesCount: 70,
           review: 3,
         },
         {
-          id: 'nature/06',
+          id: "nature/06",
           image: dudhsagr,
           title:
             "Dudhsagar Falls: The Majestic Milky Cascade Amidst Goa's Verdant Wonderland",
@@ -75,27 +75,27 @@ const data = {
         },
       ],
       banner: {
-        id: 'banner/01',
+        id: "banner/01",
         title:
           "Nature's landscapes are not just scenery to behold, but windows into the wonders of our existence",
-        color: 'bg-greenBackground',
+        color: "bg-greenBackground",
       },
     },
     water: {
-      title: 'Best of Water',
+      title: "Best of Water",
       description: "Traveller's Choice for the best beach experience.",
       data: [
         {
-          id: 'water/01',
+          id: "water/01",
           image: araku,
-          title: 'Araku Valley Natural Wonders Day Trip From Vizag',
+          title: "Araku Valley Natural Wonders Day Trip From Vizag",
           description:
             "Nature's serene haven nestled amidst majestic hills and verdant landscapes.",
           likesCount: 120,
           review: 3,
         },
         {
-          id: 'water/02',
+          id: "water/02",
           image: kashmir,
           title: "Enchanting Beauty of Kashmir's Snow Valley",
           description:
@@ -104,7 +104,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'water/03',
+          id: "water/03",
           image: khajjiar,
           title:
             "Mystical Khajjiar: Discovering the Enchanted Beauty of Himachal Pradesh's Gem",
@@ -114,7 +114,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'water/04',
+          id: "water/04",
           image: shillong,
           title: "Shillong: Symphony of Clouds and Nature's Melody",
           description:
@@ -123,17 +123,17 @@ const data = {
           review: 3,
         },
         {
-          id: 'water/05',
+          id: "water/05",
           image: sikkim,
           title:
-            'Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss',
+            "Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss",
           description:
             "Sikkim: Nature's untouched sanctuary, adorned with majestic mountains, serene monasteries, and vibrant cultural tapestry.",
           likesCount: 70,
           review: 3,
         },
         {
-          id: 'water/06',
+          id: "water/06",
           image: dudhsagr,
           title:
             "Dudhsagar Falls: The Majestic Milky Cascade Amidst Goa's Verdant Wonderland",
@@ -144,27 +144,27 @@ const data = {
         },
       ],
       banner: {
-        id: 'banner/01',
+        id: "banner/01",
         title:
           "Waterfalls are nature's symphony, where the melody of cascading water harmonizes with the rhythm of our souls",
-        color: 'bg-blueBackground',
+        color: "bg-blueBackground",
       },
     },
     devotion: {
-      title: 'Devotional Places',
+      title: "Devotional Places",
       description: "Traveller's Choice for the devotion",
       data: [
         {
-          id: 'devotion/01',
+          id: "devotion/01",
           image: araku,
-          title: 'Araku Valley Natural Wonders Day Trip From Vizag',
+          title: "Araku Valley Natural Wonders Day Trip From Vizag",
           description:
             "Nature's serene haven nestled amidst majestic hills and verdant landscapes.",
           likesCount: 120,
           review: 3,
         },
         {
-          id: 'devotion/02',
+          id: "devotion/02",
           image: kashmir,
           title: "Enchanting Beauty of Kashmir's Snow Valley",
           description:
@@ -173,7 +173,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'devotion/03',
+          id: "devotion/03",
           image: khajjiar,
           title:
             "Mystical Khajjiar: Discovering the Enchanted Beauty of Himachal Pradesh's Gem",
@@ -183,7 +183,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'devotion/04',
+          id: "devotion/04",
           image: shillong,
           title: "Shillong: Symphony of Clouds and Nature's Melody",
           description:
@@ -192,17 +192,17 @@ const data = {
           review: 3,
         },
         {
-          id: 'devotion/05',
+          id: "devotion/05",
           image: sikkim,
           title:
-            'Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss',
+            "Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss",
           description:
             "Sikkim: Nature's untouched sanctuary, adorned with majestic mountains, serene monasteries, and vibrant cultural tapestry.",
           likesCount: 70,
           review: 3,
         },
         {
-          id: 'devotion/06',
+          id: "devotion/06",
           image: dudhsagr,
           title:
             "Dudhsagar Falls: The Majestic Milky Cascade Amidst Goa's Verdant Wonderland",
@@ -213,27 +213,27 @@ const data = {
         },
       ],
       banner: {
-        id: 'banner/01',
+        id: "banner/01",
         title:
-          'Visiting a temple is not just a journey of devotion, but a spiritual embrace where the heart finds solace and the soul discovers serenity',
-        color: 'bg-brownBackground',
+          "Visiting a temple is not just a journey of devotion, but a spiritual embrace where the heart finds solace and the soul discovers serenity",
+        color: "bg-brownBackground",
       },
     },
     friends: {
-      title: 'Top Experience With Friends',
+      title: "Top Experience With Friends",
       description: "Traveller's Choice for the friends and students",
       data: [
         {
-          id: 'devotion/01',
+          id: "devotion/01",
           image: araku,
-          title: 'Araku Valley Natural Wonders Day Trip From Vizag',
+          title: "Araku Valley Natural Wonders Day Trip From Vizag",
           description:
             "Nature's serene haven nestled amidst majestic hills and verdant landscapes.",
           likesCount: 120,
           review: 3,
         },
         {
-          id: 'devotion/02',
+          id: "devotion/02",
           image: kashmir,
           title: "Enchanting Beauty of Kashmir's Snow Valley",
           description:
@@ -242,7 +242,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'devotion/03',
+          id: "devotion/03",
           image: khajjiar,
           title:
             "Mystical Khajjiar: Discovering the Enchanted Beauty of Himachal Pradesh's Gem",
@@ -252,7 +252,7 @@ const data = {
           review: 3,
         },
         {
-          id: 'devotion/04',
+          id: "devotion/04",
           image: shillong,
           title: "Shillong: Symphony of Clouds and Nature's Melody",
           description:
@@ -261,17 +261,17 @@ const data = {
           review: 3,
         },
         {
-          id: 'devotion/05',
+          id: "devotion/05",
           image: sikkim,
           title:
-            'Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss',
+            "Sikkim: The Serene Kingdom of Pristine Peaks and Tranquil Bliss",
           description:
             "Sikkim: Nature's untouched sanctuary, adorned with majestic mountains, serene monasteries, and vibrant cultural tapestry.",
           likesCount: 70,
           review: 3,
         },
         {
-          id: 'devotion/06',
+          id: "devotion/06",
           image: dudhsagr,
           title:
             "Dudhsagar Falls: The Majestic Milky Cascade Amidst Goa's Verdant Wonderland",
@@ -292,29 +292,27 @@ const data = {
   footer: {
     questions: [
       {
-        id: 'question/01',
-        title: 'Why Beyond?',
+        id: "question/01",
+        title: "Why SeeWrite?",
         description:
-          'Beyond is a widely recognized online platform that serves as a one-stop destination for travelers seeking reliable information, reviews, and recommendations for their trips. With a vast database of user-generated content, it provides a platform for people to share their travel experiences, rate accommodations, restaurants, and attractions, and offer valuable insights to fellow travelers. By aggregating and curating millions of reviews and opinions, Beyond enables travelers to make informed decisions, plan their trips efficiently, and discover hidden gems around the world. Its comprehensive resources, intuitive interface, and global community make it a trusted and invaluable tool for anyone looking to enhance their travel experiences.',
+          "SeeWrite is your go-to solution for seamless and intuitive content creation. Designed to empower users with a truly WYSIWYG (What You See Is What You Get) experience, SeeWrite eliminates the need for complex coding knowledge and makes it easy to produce professional-quality documents, websites, and more",
       },
       {
-        id: 'question/02',
-        title: 'Journey With Beyond',
+        id: "question/02",
+        title: "Journey With SeeWrite",
         description:
-          "Beyond serves as a trusted companion, offering a treasure trove of insights and recommendations. It's a portal that transcends borders, allowing you to navigate the vast landscape of travel possibilities with confidence and curiosity. As you delve into the collective wisdom of a global community, Beyond becomes your compass, guiding you towards memorable encounters, authentic flavors, and captivating destinations. Embrace the power of shared experiences, and let Beyond be your trusted ally in crafting unforgettable travel narratives.",
+          "Journey With SeeWrite is designed to transform your content creation process into a seamless and enjoyable adventure. Embrace the power of WYSIWYG (What You See Is What You Get) technology and unlock your creative potential. Whether you're crafting documents, designing web pages, or building your next big project",
       },
       {
-        id: 'question/03',
-        title: 'Beyond! A New Compass',
+        id: "question/03",
+        title: "SeeWrite! A New Business",
         description:
-          'Beyond takes you on a transformative journey of exploration and discovery, where experiences become the guiding compass for your travel decisions. With every click, you embark on a virtual adventure, immersing yourself in a wealth of firsthand experiences shared by fellow travelers. From the exhilaration of discovering hidden gems to the serendipitous encounters that shape your journey',
+          "SeeWrite! A New Business is here to revolutionize the way you create and manage content for your enterprise. With a focus on simplicity, efficiency, and innovation, SeeWrite empowers businesses of all sizes to produce professional-quality documents, websites, and marketing materials without the need for technical expertise",
       },
     ],
   },
-  signupQuote: `Embark on your wanderlust-filled odyssey today and unlock a realm
-  of incredible destinations by joining our travel community.`,
-  loginQuote: `Unlock a world of endless adventures with just a click, as you
-  embark on a captivating journey through our travel portal`,
+  signupQuote: "Create with Confidence – Sign Up for SeeWrite Today!",
+  loginQuote: `Good to See You Again – Continue Your Journey with SeeWrite.`,
 };
 
 export default data;

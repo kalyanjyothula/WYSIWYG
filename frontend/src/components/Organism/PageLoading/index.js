@@ -21,7 +21,7 @@ function PageLoading() {
            onlyMobile:before:top-[24px] onlyMobile:before:right-[24px]"
           ></div>
           <h1 className="font-one text-h6 self-center">
-            Beyond
+            See Write
             <p className="font-ubuntu text-caption text-[10px] uppercase font-bold">
               Loading ...
             </p>

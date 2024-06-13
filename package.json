@@ -1,12 +1,12 @@
 {
-  "name": "beyond-api",
+  "name": "WYSIWYG",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "client": "npm start --prefix ../frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix ./frontend",
+    "dev": "concurrently \"npm run server\"  \"npm run client\"",
     "server": "nodemon backend/server.js",
     "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
   },

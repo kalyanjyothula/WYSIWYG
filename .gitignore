@@ -23,7 +23,52 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/beyond
-.env
+# .env
 # Local Netlify folder
 .netlify
+
+# commented files
+backend/controllers/favoriteTripsController.js
+backend/controllers/goalsController.js
+backend/controllers/1.js
+backend/controllers/routeController.js
+backend/controllers/searchTagController.js
+backend/controllers/tripController.js
+.github/workflows/backend-CI.yml
+backend/models/favoriteTripsModel.js
+backend/models/goalModel.js
+backend/models/homeDataModel.js
+backend/models/routesModel.js
+backend/models/searchTagModel.js
+backend/models/tripModel.js
+backend/routes/favTripsRouter.js
+backend/routes/goalsRouter.js
+backend/routes/tripRouter.js
+backend/routes/tripRoutes.js
+frontend/.github/workflows/development.yml
+frontend/.github/workflows/node.js.yml
+frontend/.github/workflows/react.yml
+frontend/src/images/heroBanner-2.jpeg
+frontend/src/images/heroBanner.jpg
+frontend/src/images/tripCards/banner/banner-1.jpeg
+frontend/src/images/tripCards/nature/araku.jpeg
+frontend/src/images/tripCards/nature/athirappilly.jpeg
+frontend/src/images/tripCards/nature/dudhsagr.jpeg
+frontend/src/images/tripCards/nature/hogenakkal.jpeg
+frontend/src/images/tripCards/nature/kashmir.jpeg
+frontend/src/images/tripCards/nature/khajjiar.jpeg
+frontend/src/images/tripCards/nature/shillong.jpeg
+frontend/src/images/tripCards/nature/sikkim.jpeg
+frontend/src/components/HeroBanner/index.js
+frontend/src/components/Organism/FavTripCard/index.js
+frontend/src/components/Organism/TripCard/index.js
+frontend/src/container/FavTripPage/index.js
+frontend/src/container/FavTripPage/reducer.js
+frontend/src/container/FavTripPage/saga.js
+frontend/src/container/SearchResultPage/index.js
+frontend/src/container/SearchResultPage/reducer.js
+frontend/src/container/SearchResultPage/saga.js
+frontend/src/container/TripPage/index.js
+frontend/src/container/TripPage/reducer.js
+frontend/src/container/TripPage/saga.js
+frontend/src/container/TripPage/slick-custom.css

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { AiOutlineHeart, AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
+import {
+  // AiOutlineHeart,
+  AiOutlineMenu, AiOutlineUser
+} from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -61,17 +64,17 @@ function Header({
 
   return (
     <div
-      className={`h-20 px-4 flex items-center justify-between bg-transparent relative ${
+      className={`min-h-20 px-4 flex items-center justify-between bg-transparent relative ${
         customStyles ? customStyles : ""
       } `}
     >
       <Link
-        className={`text-title px-6 onlyMobile:px-2  uppercase font-one ${
+        className={`text-title px-6 onlyMobile:px-2  uppercase font-one onlyMobile:text-h8 ${
           isTextWhite ? "text-[#FDFFFE]" : "text-primaryGreen"
         } ${showSearch ? "onlyMobile:hidden" : ""}`}
         to="/"
       >
-        Beyond
+        See Write
       </Link>
       {showSearch && (
         <Link
@@ -121,7 +124,7 @@ function Header({
         </form>
       )}
       <div className="flex items-center px-4 gap-x-1 backdrop-brightness-100">
-        <Link
+        {/* <Link
           to="/fav-trips"
           className={`onlyMobile:hidden flex px-2 justify-between items-center cursor-pointer ${
             isTextWhite && "text-[#FDFFFE]"
@@ -129,7 +132,7 @@ function Header({
         >
           <AiOutlineHeart className="h-5 w-5 text-h8" />
           <h3 className="pl-1 text-h8 font-ubuntu tracking-normal ">Trips</h3>
-        </Link>
+        </Link> */}
         <div
           className={`flex items-center gap-x-2 justify-between
              p-2 border-2 rounded-2xl cursor-pointer relative ${
@@ -182,12 +185,12 @@ function Header({
             )}
           </React.Fragment>
         )}
-        <Link
+        {/* <Link
           className="hidden onlyMobile:block text-body3 capitalize py-1 cursor-pointer"
           to="/fav-trips"
         >
           ♥ Trips
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

@@ -12,9 +12,12 @@ import {
 import homePageData from "../../data/homepage";
 import { useDispatch, useSelector } from "react-redux";
 import { createAccount, signupPageSelector } from "./reducer";
-import { useGoogleLogin } from "@react-oauth/google";
+// import { useGoogleLogin } from "@react-oauth/google";
 import { toast } from "react-toastify";
-import { appSelector, googleLoginInfo } from "../App/reducer";
+import {
+  appSelector,
+  // googleLoginInfo
+} from "../App/reducer";
 
 function SignupPage() {
   const { signupQuote } = homePageData;
@@ -63,16 +66,16 @@ function SignupPage() {
     );
   };
 
-  const handleGoogleLogin = useGoogleLogin({
-    onSuccess: (response) => {
-      dispatch(googleLoginInfo(response));
-      navigate("/");
-    },
-    onError: (error) => {
-      console.log(error);
-      toast.error("Google Login Failed !");
-    },
-  });
+  // const handleGoogleLogin = useGoogleLogin({
+  //   onSuccess: (response) => {
+  //     dispatch(googleLoginInfo(response));
+  //     navigate("/");
+  //   },
+  //   onError: (error) => {
+  //     console.log(error);
+  //     toast.error("Google Login Failed !");
+  //   },
+  // });
 
   return (
     <div className="bg-[#001B2E]">
@@ -142,7 +145,8 @@ function SignupPage() {
                 <GrGoogle
                   className="h-10 w-12 text-blue-400 
             shadow-md p-2 rounded-md cursor-pointer"
-                  onClick={() => handleGoogleLogin()}
+                  // onClick={() => handleGoogleLogin()}
+                  onClick={handleOauthClick}
                 />
                 <GrInstagram
                   className="h-10 w-12 text-pink-500 

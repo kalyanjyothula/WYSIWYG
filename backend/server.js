@@ -8,7 +8,7 @@ const connectDB = require('./config/connection');
 const errorHandler = require('./middleware/errorMiddleware');
 
 connectDB();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const app = express();
 
@@ -20,9 +20,9 @@ app.use(cookieParser());
 
 app.use('/api/goals', require('./routes/goalsRouter'));
 app.use('/api/user', require('./routes/userRouter'));
-app.use('/api/fav-trips', require('./routes/favTripsRouter'));
-app.use('/api/trip', require('./routes/tripRouter'));
-app.use('/api/route', require('./routes/tripRoutes'));
+// app.use('/api/fav-trips', require('./routes/favTripsRouter'));
+// app.use('/api/trip', require('./routes/tripRouter'));
+// app.use('/api/route', require('./routes/tripRoutes'));
 console.log(__dirname, "dir")
 // Serve frontend
 const __dirname1 = path.resolve()

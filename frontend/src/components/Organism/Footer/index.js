@@ -27,7 +27,7 @@ function Footer() {
           <div className="flex gap-x-2 items-center">
             <FaRegCopyright className="h-4 w-4" />
             <p className="text-h8 inline-block font-ubuntu uppercase">
-              {new Date().getFullYear().toString()} Beyond PVT. LTD
+              {new Date().getFullYear().toString()} SeeWrite PVT. LTD
             </p>
           </div>
           <h1 className="text-h8 font-ubuntu leading-4 text-right">India.</h1>
