@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  // useEffect
+} from "react";
 import PropTypes from "prop-types";
 import {
   // AiOutlineHeart,
@@ -10,8 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   appSelector,
   userLogOut,
-  getSearchSuggestions,
-  getSearchSuggestionsFail,
+  // getSearchSuggestions,
+  // getSearchSuggestionsFail,
 } from "../../../container/App/reducer";
 import { toast } from "react-toastify";
 
@@ -46,21 +49,21 @@ function Header({
     setShowSuggestions(true);
   };
 
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-    dispatch(getSearchSuggestionsFail());
-    navigate(`/search/${searchText}`);
-  };
+  // const handleOnSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(getSearchSuggestionsFail());
+  //   navigate(`/search/${searchText}`);
+  // };
 
-  useEffect(() => {
-    const timer = setTimeout(
-      () => dispatch(getSearchSuggestions(searchText)),
-      100
-    );
-    return () => {
-      clearInterval(timer);
-    };
-  }, [dispatch, searchText]);
+  // useEffect(() => {
+  //   const timer = setTimeout(
+  //     () => dispatch(getSearchSuggestions(searchText)),
+  //     100
+  //   );
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // }, [dispatch, searchText]);
 
   return (
     <div
@@ -69,7 +72,7 @@ function Header({
       } `}
     >
       <Link
-        className={`text-title px-6 onlyMobile:px-2  uppercase font-one onlyMobile:text-h8 ${
+        className={`text-title px-6 onlyMobile:px-2  uppercase font-one onlyMobile:text-h8  py-4 onlyMobile:py-2 ${
           isTextWhite ? "text-[#FDFFFE]" : "text-primaryGreen"
         } ${showSearch ? "onlyMobile:hidden" : ""}`}
         to="/"
@@ -90,7 +93,7 @@ function Header({
         <form
           className="flex h-16 bg-white items-center border 
           rounded-[45px] w-[50%] onlyMobile:w-[80%] px-4 gap-x-4 relative"
-          onSubmit={handleOnSubmit}
+          // onSubmit={handleOnSubmit}
         >
           <FiSearch className="h-6 w-6" />
           <input

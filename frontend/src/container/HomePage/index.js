@@ -1,17 +1,20 @@
 import {
   // useState,
-  useEffect
+  // useEffect
 } from "react";
 // import PropTypes from 'prop-types';
 // import { FiSearch } from "react-icons/fi";
 import { Header, Footer } from "../../components/Organism";
 // import homePageData from "./../../data/homepage";
 // import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import {
+  // useDispatch,
+  useSelector
+} from "react-redux";
 import "./slick-custom.css";
 import {
   // addToFavoriteTrip,
-  getFavoriteTrips,
+  // getFavoriteTrips,
   // getHomePageData,
   // homePageSelector,
 } from "./reducer";
@@ -50,9 +53,13 @@ function HomePage() {
   //   ],
   // };
   // const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { loading, isAuthenticated, userInfo } =
+
+  // const dispatch = useDispatch();
+  const { loading,
+    // isAuthenticated, userInfo
+  } =
     useSelector(appSelector);
+  
   // const [searchText, setSearchText] = useState("");
   // const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -62,13 +69,13 @@ function HomePage() {
   //   loading: homeLoading,
   // } = useSelector(homePageSelector);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      dispatch(
-        getFavoriteTrips({ email: userInfo.email, token: userInfo.token })
-      );
-    }
-  }, [dispatch, isAuthenticated, userInfo.email, userInfo.token]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     dispatch(
+  //       getFavoriteTrips({ email: userInfo.email, token: userInfo.token })
+  //     );
+  //   }
+  // }, [dispatch, isAuthenticated, userInfo.email, userInfo.token]);
 
   // useEffect(() => {
   //   if (homepageData?.length <= 0) dispatch(getHomePageData());
