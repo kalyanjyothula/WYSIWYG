@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {
   useState,
   // useEffect
@@ -72,7 +73,7 @@ function Header({
       } `}
     >
       <Link
-        className={`text-title px-6 onlyMobile:px-2  uppercase font-one onlyMobile:text-h8  py-4 onlyMobile:py-2 ${
+        className={`text-title px-6 onlyMobile:pl-0  uppercase font-one onlyMobile:text-h8  py-4 onlyMobile:py-2 ${
           isTextWhite ? "text-[#FDFFFE]" : "text-primaryGreen"
         } ${showSearch ? "onlyMobile:hidden" : ""}`}
         to="/"
@@ -173,19 +174,19 @@ function Header({
             {!hideSignUp && (
               <Link
                 className="block text-body3 capitalize py-1 cursor-pointer"
-                to="/signup"
+                to="/dashboard"
               >
-                Sign Up
+                Dashboard
               </Link>
             )}
-            {!hideLogin && (
+            {/* {!hideLogin && (
               <Link
                 className="block text-body3 bg-white capitalize py-1 cursor-pointer"
                 to="/login"
               >
                 Log In
               </Link>
-            )}
+            )} */}
           </React.Fragment>
         )}
         {/* <Link

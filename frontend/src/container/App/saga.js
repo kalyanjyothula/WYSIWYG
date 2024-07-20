@@ -23,7 +23,10 @@ export function* getUserSaga() {
       yield put(
         setUserInfo({ mobile: mobile, email: email, token: token, id: id })
       );
-    } else yield put(getUserInfoFail());
+    } else {
+      yield put(getUserInfoFail());
+      yield window.location.href = "/"
+    }
   } catch (error) {
     console.log(error);
     yield put(getUserInfoFail());
@@ -89,28 +92,10 @@ export function* googleLoginInfoAsync({ payload }) {
   }
 }
 
-// export function* getSearchSuggestionsAsync({ payload }) {
-//   // console.log(payload, "pa");
-//   try {
-//     if (payload) {
-//       const url = "/api/trip/search-suggestion";
-//       const { data } = yield call(axios, {
-//         method: "POST",
-//         url: url,
-//         data: { text: payload },
-//       });
-//       if (data.success) yield put(getSearchSuggestionsSuccess(data.search));
-//       else yield put(getSearchSuggestionsFail());
-//     }
-//   } catch (error) {
-//     yield put(getSearchSuggestionsFail());
-//     console.log(error);
-//   }
-// }
+
 
 export const AppSaga = [
   takeLatest(getUserInfo.type, getUserSaga),
   takeLatest(userLogOut.type, userLogOutAsync),
   takeLatest(googleLoginInfo.type, googleLoginInfoAsync),
-  // takeLatest(getSearchSuggestions.type, getSearchSuggestionsAsync),
 ];
