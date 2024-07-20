@@ -1,42 +1,32 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
-// import { getUser } from './reducer';
+import React from "react";
+import { Route, Routes } from "react-router-dom";;
 import HomePage from "../HomePage";
-import LoginPage from "../LoginPage";
-// import ItemView from "../ItemView";
 import { ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
-import SignupPage from "../SignupPage";
-// import FavTripPage from "../FavTripPage";
-// import SearchResultPage from "../SearchResultPage";
-// import TripPage from "../TripPage";
-// import ProfilePage from "../ProfilePage";
-import { appSelector, getUserInfo } from "./reducer";
+import Dashboard from "../Dashboard";
+import StylePrompt from "../../components/Organism/StylePrompt";
+import { appSelector } from "./reducer";
 
 // import "./App.css";
 
 function App() {
-  const dispatch = useDispatch();
-  const { isAuthenticated } = useSelector(appSelector);
-  useEffect(() => {
-    if (!isAuthenticated) dispatch(getUserInfo());
-  }, [dispatch, isAuthenticated]);
+
+  const appState = useSelector(appSelector)
 
   return (
     <React.Fragment>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/signup" element={<SignupPage />}></Route>
-        {/* <Route path="/fav-trips" element={<FavTripPage />}></Route>
-        <Route path="/search/:key" element={<SearchResultPage />}></Route>
-        <Route path="/trip/:id" element={<TripPage />}></Route>
-        <Route path="/view/:id" element={<ProfilePage />}></Route>
-        <Route path="/profile" element={<ProfilePage />}></Route> */}
+        {/* <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/signup" element={<SignupPage />}></Route> */}
+        <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="*" element={<div>404 Not Found</div>}></Route>
-        {/* <Route path="/itemView/:id" element={<ItemView />}></Route> */}
       </Routes>
+      <StylePrompt
+        isOpen={appState.isOpen}
+        selectedComponentId={appState.selectedId}
+      />
       <ToastContainer />
     </React.Fragment>
   );

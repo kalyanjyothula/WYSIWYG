@@ -13,6 +13,7 @@ export function* userLoginAsync({ payload }) {
       data: { ...payload },
     });
     if (data.success)
+    {
       yield put(
         setUserInfo({
           _id: data.id,
@@ -21,6 +22,8 @@ export function* userLoginAsync({ payload }) {
           token: data.token,
         })
       );
+      yield window.location.href = "/dashboard"
+    }
     else yield put(googleLoginInfoFail());
   } catch (error) {
     yield put(googleLoginInfoFail());

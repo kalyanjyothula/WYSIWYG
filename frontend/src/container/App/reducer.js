@@ -6,6 +6,9 @@ const userReducer = createSlice({
     userInfo: "",
     isAuthenticated: false,
     loading: false,
+    selectedId: "",
+    isOpen: false,
+    componentStyle: {}
   },
   reducers: {
     getUserInfo(state) {
@@ -46,15 +49,16 @@ const userReducer = createSlice({
         loading: false,
       };
     },
-    getSearchSuggestions(state, { payload }) {
-      return { ...state, searchText: payload };
+    openStyleModel(state, { payload }) {
+      return { ...state, isOpen: payload?.id ? true : false, selectedId: payload?.id };
     },
-    getSearchSuggestionsSuccess(state, { payload }) {
-      return { ...state, searchSuggestions: [...payload] };
-    },
-    getSearchSuggestionsFail(state) {
-      return { ...state, searchSuggestions: [] };
-    },
+    updateComponentStyle(state, { payload }) {
+      return {
+        ...state,
+        componentStyle: { ...state.componentStyle, [payload.id]: { ...payload.props } },
+        isOpen: false, selectedId: ""
+      };
+     }
   },
 });
 
@@ -66,9 +70,8 @@ export const {
   userLogOut,
   googleLoginInfoSuccess,
   googleLoginInfoFail,
-  getSearchSuggestions,
-  getSearchSuggestionsSuccess,
-  getSearchSuggestionsFail,
+  openStyleModel,
+  updateComponentStyle,
 } = userReducer.actions;
 
 export const appSelector = (state) => state.app;

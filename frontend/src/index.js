@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import store from './store/configureStore';
 import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import 'draft-js/dist/Draft.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,11 +17,13 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
         <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
-          <App />
+          <DndProvider backend={HTML5Backend}>
+            <App />
+          </DndProvider>
         </GoogleOAuthProvider>
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

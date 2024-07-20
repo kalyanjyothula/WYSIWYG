@@ -30,7 +30,7 @@ function LoginPage() {
   const { loading } = useSelector(loginPageSelector);
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/");
+    if (isAuthenticated) navigate("/dashboard");
   }, [isAuthenticated, navigate]);
 
   const handleInputChange = (e) => {

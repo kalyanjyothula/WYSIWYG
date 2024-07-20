@@ -1,6 +1,8 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import TripCard from "./TripCard";
-import FavTripCard from "./FavTripCard";
+import Canvas from "./Canvas";
+import Toolbar from "./Toolbar";
 
-export { Footer, Header, TripCard, FavTripCard };
+
+
+export { Footer, Header, Canvas, Toolbar };

@@ -21,7 +21,7 @@ export function* createAccountAsync({ payload }) {
           token: data.token,
         })
       );
-      yield (window.location.href = "/");
+      yield (window.location.href = "/dashboard");
     } else yield put(createAccountFail(data.message));
   } catch (error) {
     const r = 2 + 3;
